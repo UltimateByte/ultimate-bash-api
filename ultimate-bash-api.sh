@@ -35,12 +35,21 @@ uba_log="${logdir}/${function_selfname}.log" # Define log name
 ## SCRIPT ##
 ############
 
+
+# TIME
+SECONDS=0
+
 ## Settings override
 
 if [ "${master_settings_override}" == "on" ]; then
-  if [ "${master_sleeptime_override}" == "on" ]; then
-    sleeptime="${master_sleeptime}"
-  fi
-  if [ "${master_sleeptime_override}" == "on" ]; then
-  
+	if [ "${master_sleeptime_override}" == "on" ]; then
+		sleeptime="${master_sleeptime}"
+	fi
+	if [ "${master_mail_notifications_override}" == "on" ]; then
+  		mail_notifications="${master_mail_notifications}"
+	fi
+	if [ "${master_mail_address_override}" == "on" ]; then
+  		mail_address="${master_mail_address}"
+	fi
 fi
+

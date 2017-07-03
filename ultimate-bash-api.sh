@@ -6,10 +6,9 @@
 # Websites: lrob.fr | terageek.org
 
 ## Misc vars
-api_selfname="Ultimate-Bash-API" # Name of the script
-master_selfname="$(basename $(readlink -f "${BASH_SOURCE[0]}"))" # Name of this script file
-master_rootdir="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
-uba_log="${logdir}/${function_selfname}.log" # Define log name
+function_nicename="Ultimate-Bash-API" # Name of the script
+function_selfname="$(basename $(readlink -f "${BASH_SOURCE[0]}"))" # Name of this script file
+function_rootdir="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 
 ##############
 ## SETTINGS ##
@@ -23,13 +22,12 @@ mail_notifications="on"
 mailto_address="root@localhost" # Recipient mail alert address
 
 # Logging
-logdir="${master_rootdir}/log/" # Directory in which to save logs
-log="${logdir}/${api_selfname}.log"
+logdir="${function_rootdir}/log/" # Directory in which to save logs
+log="${logdir}/${function_nicename}.log"
 
 ############
 ## SCRIPT ##
 ############
-
 
 # TIME
 SECONDS=0
@@ -97,6 +95,12 @@ fn_mail_currlog(){
 		fn_logecho "[INFO] Sending mail alert to: ${mailaddress}"
 		echo -e "${currlog}" | mail -s "$(hostname -s) - ${mailsubject}" ${mailto_address}
 	fi
+}
+
+# Displays the duration since you executed this script
+fn_duration(){
+	duration=$SECONDS
+	echo "[INFO] $(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
 }
 
 # Create log files

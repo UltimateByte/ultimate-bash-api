@@ -1,9 +1,9 @@
 #!/bin/bash
 # Name: Ultimate BASH API
-# Version: 2017-06-15
+# Version: 2017-08-08
 # Description: Add nice pre-made functions to your bash scripts
 # Developer: Robin Labadie
-# Websites: lrob.fr | terageek.org
+# Websites: lrob.fr | haisoft.fr | terageek.org
 
 ## Misc vars
 function_nicename="Ultimate-Bash-API" # Name of the script

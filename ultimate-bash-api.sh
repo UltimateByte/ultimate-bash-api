@@ -1,6 +1,6 @@
 #!/bin/bash
 # Name: Ultimate BASH API
-# Version: 2017-08-08
+# Version: 2017-08-27
 # Description: Add nice pre-made functions to your bash scripts
 # Developer: Robin Labadie
 # Websites: lrob.fr | haisoft.fr | terageek.org

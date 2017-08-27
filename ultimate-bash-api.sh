@@ -23,7 +23,11 @@ mailto_address="root@localhost" # Recipient mail alert address
 
 # Logging
 logdir="${function_rootdir}/log/" # Directory in which to save logs
-log="${logdir}/${function_nicename}.log"
+if [ -n "${selfname}" ]; then
+	log="${logdir}/${selfname}.log"
+else
+	log="${logdir}/${function_nicename}.log"
+fi
 
 ############
 ## SCRIPT ##

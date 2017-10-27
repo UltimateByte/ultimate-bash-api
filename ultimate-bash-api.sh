@@ -59,6 +59,15 @@ fn_echo(){
 	echo -e "${echoform}"
 }
 
+# Simple log with date
+# Usage fn_log "Your Message"
+fn_log(){
+	currmessage="$1"
+	fn_echo_form
+	echo -e "${echoform}" >> "${log}"
+	currlog="${currlog}${echoform}\n"
+}
+
 # Echo with date and output to log at the same time
 # Usage fn_logecho "Your Message"
 fn_logecho(){

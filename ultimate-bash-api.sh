@@ -83,7 +83,7 @@ fn_logecho(){
 # Define mailcontent to your mail body message
 fn_mail(){
 	if [ "${mailalert}" == "yes" ]; then
-		fn_logecho "[INFO] Sending mail alert to: ${mailaddress}"
+		fn_logecho "[INFO] Sending mail alert to: ${mailto_address}"
 		echo -e "${mailcontent}" | mail -s "$(hostname -s) - ${mailsubject}" ${mailto_address}
 	fi
 }
@@ -91,7 +91,7 @@ fn_mail(){
 # Send mail containing all current log
 fn_mail_currlog(){
 	if [ "${mailalert}" == "yes" ]; then
-		fn_logecho "[INFO] Sending mail alert to: ${mailaddress}"
+		fn_logecho "[INFO] Sending mail alert to: ${mailto_address}"
 		echo -e "${currlog}" | mail -s "$(hostname -s) - ${mailsubject}" ${mailto_address}
 	fi
 }

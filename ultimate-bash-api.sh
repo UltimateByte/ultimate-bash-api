@@ -18,7 +18,7 @@ function_rootdir="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 sleeptime="0" # Sleeptime settings
 
 # Mailing
-mail_notifications="on" 
+mail_notifications="on"
 mailto_address="root@localhost" # Recipient mail alert address
 
 # Logging
@@ -32,6 +32,8 @@ fi
 ############
 ## SCRIPT ##
 ############
+
+currlog=""
 
 # TIME
 SECONDS=0
@@ -82,7 +84,7 @@ fn_logecho(){
 # Define mailsubject to your mail subject
 # Define mailcontent to your mail body message
 fn_mail(){
-	if [ "${mailalert}" == "yes" ]; then
+	if [ "${mailalert}" == "on" ]; then
 		fn_logecho "[INFO] Sending mail alert to: ${mailto_address}"
 		echo -e "${mailcontent}" | mail -s "$(hostname -s) - ${mailsubject}" ${mailto_address}
 	fi
@@ -90,9 +92,9 @@ fn_mail(){
 
 # Send mail containing all current log
 fn_mail_currlog(){
-	if [ "${mailalert}" == "yes" ]; then
+	if [ "${mail_notifications}" == "on" ]; then
 		fn_logecho "[INFO] Sending mail alert to: ${mailto_address}"
-		echo -e "${currlog}" | mail -s "$(hostname -s) - ${mailsubject}" ${mailto_address}
+		echo -e "${currlog}" | mail -s "$(hostname -s)" ${mailto_address}
 	fi
 }
 

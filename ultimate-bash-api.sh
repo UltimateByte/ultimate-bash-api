@@ -18,7 +18,7 @@ function_rootdir="$(dirname $(readlink -f "${BASH_SOURCE[0]}"))"
 sleeptime="0" # Sleeptime settings
 
 # Mailing
-mail_notifications="on"
+mail_notifications="off"
 mailto_address="root@localhost" # Recipient mail alert address
 
 # Logging
